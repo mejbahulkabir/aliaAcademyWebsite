@@ -1,0 +1,20 @@
+import { Link } from "@tanstack/react-router";
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+import { SectionHeading } from "@/components/common/section-heading";
+import { FacultyCard } from "@/components/common/cards";
+import { FACULTY } from "@/constants/data";
+import { stagger } from "@/animations/variants";
+export function FacultyPreview() {
+  return (
+    <section className="bg-secondary/40 py-20 md:py-28">
+      <div className="container mx-auto px-4">
+        <SectionHeading eyebrow="Mentors who served" title="Faculty drawn from Army, Navy and Air Force" description="Decades of operational experience, distilled into a coaching system." />
+        <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {FACULTY.slice(0, 3).map((f) => (<FacultyCard key={f.id} faculty={f} />))}
+        </motion.div>
+        <div className="mt-10 text-center"><Link to="/faculty" className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-[var(--navy)]">Meet the full faculty <ArrowRight className="h-4 w-4" /></Link></div>
+      </div>
+    </section>
+  );
+}
