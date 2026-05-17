@@ -41,7 +41,7 @@ function Post() {
   return (
     <>
       <article className="container mx-auto max-w-3xl px-4 py-20 md:py-28">
-        <Link to="/blog" className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-[var(--navy)]"><ArrowLeft className="h-4 w-4" /> All articles</Link>
+        <Link to="/blog" className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-navy"><ArrowLeft className="h-4 w-4" /> All articles</Link>
         <div className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-accent">{post.category}</div>
         <h1 className="font-display mt-2 text-4xl font-bold tracking-tight md:text-5xl">{post.title}</h1>
         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
