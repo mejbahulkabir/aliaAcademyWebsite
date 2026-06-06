@@ -4,10 +4,12 @@ import { Menu, Shield, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { NAV_LINKS, SITE } from "@/constants/site";
+import { NAV_LINKS } from "@/constants/site";
+import { useSiteData } from "@/lib/site-data";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar() {
+  const { site: SITE } = useSiteData();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const router = useRouter();

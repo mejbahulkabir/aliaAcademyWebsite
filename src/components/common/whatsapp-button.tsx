@@ -1,8 +1,9 @@
 import { MessageCircle } from "lucide-react";
-import { SITE } from "@/constants/site";
+import { useSiteData } from "@/lib/site-data";
 
 export function WhatsAppButton() {
-  const href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent("Hi Afrin Defence Academy, I'd like to know more about your defence programs.")}`;
+  const { site: SITE } = useSiteData();
+  const href = `https://wa.me/${SITE.whatsapp ?? ""}?text=${encodeURIComponent(`Hi ${SITE.name}, I'd like to know more about your defence programs.`)}`;
   return (
     <a
       href={href}

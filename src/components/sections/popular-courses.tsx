@@ -3,9 +3,10 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
 import { CourseCard } from "@/components/common/cards";
-import { COURSES } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { stagger } from "@/animations/variants";
 export function PopularCourses() {
+  const { courses: COURSES } = useSiteData();
   const list = COURSES.filter((c) => c.popular).concat(COURSES.filter((c) => !c.popular)).slice(0, 3);
   return (
     <section className="bg-secondary/40 py-20 md:py-28">

@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/sections/page-header";
 import { TestimonialCard } from "@/components/common/cards";
 import { StatsBand } from "@/components/sections/stats";
 import { CTASection } from "@/components/common/cta-section";
-import { TESTIMONIALS } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
@@ -14,6 +14,7 @@ export const Route = createFileRoute("/success-stories")({
 });
 
 function Stories() {
+  const { testimonials: TESTIMONIALS } = useSiteData();
   return (
     <>
       <PageHeader eyebrow="Results" title="3,200+ officers. One academy." description="The numbers tell one story. The voices tell another." />

@@ -13,6 +13,8 @@ import { SiteShell } from "@/components/layout/site-shell";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE } from "@/constants/site";
+import { loadSiteData } from "@/lib/api-client";
+import { SiteDataProvider } from "@/lib/site-data";
 
 function NotFoundComponent() {
   return (
@@ -72,6 +74,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: () => loadSiteData(),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -129,15 +132,18 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const data = Route.useLoaderData();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <SiteShell>
-          <Outlet />
-        </SiteShell>
-        <Toaster position="top-right" richColors />
-      </ThemeProvider>
+      <SiteDataProvider value={data}>
+        <ThemeProvider>
+          <SiteShell>
+            <Outlet />
+          </SiteShell>
+          <Toaster position="top-right" richColors />
+        </ThemeProvider>
+      </SiteDataProvider>
     </QueryClientProvider>
   );
 }

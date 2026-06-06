@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { PageHeader } from "@/components/sections/page-header";
 import { FacultyCard } from "@/components/common/cards";
 import { CTASection } from "@/components/common/cta-section";
-import { FACULTY } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
@@ -13,6 +13,7 @@ export const Route = createFileRoute("/faculty")({
 });
 
 function Faculty() {
+  const { faculty: FACULTY } = useSiteData();
   return (
     <>
       <PageHeader eyebrow="The mentors" title="Faculty who have served, and now teach." description="Operational experience meets pedagogy." />

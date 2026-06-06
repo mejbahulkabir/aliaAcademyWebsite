@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { contactSchema, type ContactFormValues } from "@/schemas/forms";
 import { submitContact } from "@/services/api";
-import { SITE } from "@/constants/site";
+import { useSiteData } from "@/lib/site-data";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
@@ -20,6 +20,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
+  const { site: SITE } = useSiteData();
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormValues>({ resolver: zodResolver(contactSchema) });
   const onSubmit = async (values: ContactFormValues) => {

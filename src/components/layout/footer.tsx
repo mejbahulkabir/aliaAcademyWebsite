@@ -1,14 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Shield, Twitter, Youtube } from "lucide-react";
-import { NAV_LINKS, SITE } from "@/constants/site";
-const social = [
-  { href: SITE.socials.facebook, label: "Facebook", Icon: Facebook },
-  { href: SITE.socials.instagram, label: "Instagram", Icon: Instagram },
-  { href: SITE.socials.youtube, label: "YouTube", Icon: Youtube },
-  { href: SITE.socials.twitter, label: "Twitter", Icon: Twitter },
-  { href: SITE.socials.linkedin, label: "LinkedIn", Icon: Linkedin },
-];
+import { NAV_LINKS } from "@/constants/site";
+import { useSiteData } from "@/lib/site-data";
 export function Footer() {
+  const { site: SITE } = useSiteData();
+  const social = [
+    { href: SITE.socials?.facebook ?? "#", label: "Facebook", Icon: Facebook },
+    { href: SITE.socials?.instagram ?? "#", label: "Instagram", Icon: Instagram },
+    { href: SITE.socials?.youtube ?? "#", label: "YouTube", Icon: Youtube },
+    { href: SITE.socials?.twitter ?? "#", label: "Twitter", Icon: Twitter },
+    { href: SITE.socials?.linkedin ?? "#", label: "LinkedIn", Icon: Linkedin },
+  ];
   return (
     <footer className="bg-gradient-ocean relative mt-20 overflow-hidden text-white">
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.08]" />

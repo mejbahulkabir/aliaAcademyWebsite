@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { PageHeader } from "@/components/sections/page-header";
 import { CourseCard } from "@/components/common/cards";
 import { CTASection } from "@/components/common/cta-section";
-import { COURSES } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
@@ -13,6 +13,7 @@ export const Route = createFileRoute("/courses")({
 });
 
 function Courses() {
+  const { courses: COURSES } = useSiteData();
   return (
     <>
       <PageHeader eyebrow="Programs" title="Choose your training track" description="Six specialised programs covering every officer entry into the Indian Armed Forces and CAPF." />

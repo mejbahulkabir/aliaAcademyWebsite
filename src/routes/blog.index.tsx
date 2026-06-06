@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { PageHeader } from "@/components/sections/page-header";
 import { BlogCard } from "@/components/common/cards";
-import { BLOG_POSTS } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
@@ -12,6 +12,7 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function Blog() {
+  const { blog: BLOG_POSTS } = useSiteData();
   return (
     <>
       <PageHeader eyebrow="Insights" title="Strategy & service writing" description="Long-form articles from our faculty — practical, specific and based on what actually works." />

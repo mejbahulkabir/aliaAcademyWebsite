@@ -1,12 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Clock } from "lucide-react";
-import { BLOG_POSTS } from "@/constants/data";
+import { loadBlogPost } from "@/lib/api-client";
 import { CTASection } from "@/components/common/cta-section";
 import { SITE } from "@/constants/site";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = BLOG_POSTS.find((p) => p.slug === params.slug);
+  loader: async ({ params }) => {
+    const post = await loadBlogPost(params.slug);
     if (!post) throw notFound();
     return { post };
   },

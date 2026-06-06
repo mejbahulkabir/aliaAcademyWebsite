@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { CheckCircle2 } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
-import { WHY_US } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { fadeUp, stagger } from "@/animations/variants";
 export function WhyUs() {
+  const { whyUs: WHY_US } = useSiteData();
   return (
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-4">

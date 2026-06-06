@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { PageHeader } from "@/components/sections/page-header";
 import { ExamCategories } from "@/components/sections/exam-categories";
 import { CTASection } from "@/components/common/cta-section";
-import { EXAMS } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { fadeUp, stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
@@ -13,6 +13,7 @@ export const Route = createFileRoute("/defence-exams")({
 });
 
 function DefenceExams() {
+  const { exams: EXAMS } = useSiteData();
   return (
     <>
       <PageHeader eyebrow="Defence Exam Preparation" title="Every officer entry, decoded." description="Eligibility, structure and our approach to each major defence examination." />

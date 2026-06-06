@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, ArrowRight } from "lucide-react";
-import { SITE } from "@/constants/site";
+import { useSiteData } from "@/lib/site-data";
 export function MobileStickyCTA() {
+  const { site: SITE } = useSiteData();
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-background/95 px-3 py-2.5 backdrop-blur-xl md:hidden">
       <div className="flex items-center gap-2">

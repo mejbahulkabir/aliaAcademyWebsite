@@ -3,9 +3,10 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
 import { FacultyCard } from "@/components/common/cards";
-import { FACULTY } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { stagger } from "@/animations/variants";
 export function FacultyPreview() {
+  const { faculty: FACULTY } = useSiteData();
   return (
     <section className="bg-secondary/40 py-20 md:py-28">
       <div className="container mx-auto px-4">

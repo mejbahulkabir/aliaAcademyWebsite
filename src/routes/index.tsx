@@ -12,7 +12,7 @@ import { GalleryGrid } from "@/components/sections/gallery-grid";
 import { BlogCard } from "@/components/common/cards";
 import { motion } from "motion/react";
 import { stagger } from "@/animations/variants";
-import { BLOG_POSTS } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { buildHead } from "@/lib/seo";
 import classroom from "@/assets/gallery-classroom.jpg";
 import pt from "@/assets/gallery-pt.jpg";
@@ -27,6 +27,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { blog: BLOG_POSTS } = useSiteData();
   const gallery = [
     { src: classroom, alt: "Cadets in classroom", caption: "Strategy & GS classroom" },
     { src: pt, alt: "Cadets PT", caption: "Morning physical training" },

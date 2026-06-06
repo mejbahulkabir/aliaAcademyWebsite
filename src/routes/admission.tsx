@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { admissionSchema, type AdmissionFormValues } from "@/schemas/forms";
 import { submitAdmission } from "@/services/api";
-import { COURSES, EXAMS } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/admission")({
@@ -21,9 +21,10 @@ export const Route = createFileRoute("/admission")({
 });
 
 function Admission() {
+  const { courses: COURSES, exams: EXAMS } = useSiteData();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
-  const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm<AdmissionFormValues>({ resolver: zodResolver(admissionSchema), defaultValues: { course: COURSES[0].title, targetExam: EXAMS[0].name } });
+  const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm<AdmissionFormValues>({ resolver: zodResolver(admissionSchema), defaultValues: { course: COURSES[0]?.title ?? "", targetExam: EXAMS[0]?.name ?? "" } });
   const consent = watch("consent");
 
   const onSubmit = async (values: AdmissionFormValues) => {

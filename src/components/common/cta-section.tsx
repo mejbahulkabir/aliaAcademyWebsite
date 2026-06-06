@@ -2,9 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SITE } from "@/constants/site";
+import { useSiteData } from "@/lib/site-data";
 import ctaImg from "@/assets/cta-training.jpg";
 export function CTASection() {
+  const { site: SITE } = useSiteData();
   return (
     <section className="relative overflow-hidden py-20 md:py-28">
       <div className="absolute inset-0 -z-10">

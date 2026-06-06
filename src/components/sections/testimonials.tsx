@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
 import { TestimonialCard } from "@/components/common/cards";
-import { TESTIMONIALS } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 export function Testimonials() {
+  const { testimonials: TESTIMONIALS } = useSiteData();
   const [i, setI] = useState(0);
   const n = TESTIMONIALS.length;
   useEffect(() => { const id = setInterval(() => setI((v) => (v + 1) % n), 6000); return () => clearInterval(id); }, [n]);

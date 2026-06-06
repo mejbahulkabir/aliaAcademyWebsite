@@ -2,10 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowUpRight, Anchor, Plane, Shield, Crosshair, Compass, Flag } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
-import { EXAMS } from "@/constants/data";
+import { useSiteData } from "@/lib/site-data";
 import { fadeUp, stagger } from "@/animations/variants";
 const ICONS: Record<string, typeof Shield> = { nda: Shield, cds: Crosshair, afcat: Plane, ssb: Compass, capf: Flag, agniveer: Anchor };
 export function ExamCategories() {
+  const { exams: EXAMS } = useSiteData();
   return (
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-4">
