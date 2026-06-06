@@ -9,7 +9,7 @@ import { stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/success-stories")({
-  head: () => buildHead({ title: "Success Stories", description: "Read how cadets and officers — from NDA toppers to AFCAT all-India rankers — began their journey at Alia Academy.", path: "/success-stories" }),
+  head: () => buildHead({ title: "Success Stories", description: "Read how cadets and officers — from NDA toppers to AFCAT all-India rankers — began their journey at Afrin Defence Academy.", path: "/success-stories" }),
   component: Stories,
 });
 

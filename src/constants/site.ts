@@ -1,12 +1,12 @@
 export const SITE = {
-  name: "Alia Academy",
-  shortName: "Alia",
+  name: "Afrin Defence Academy",
+  shortName: "Afrin",
   tagline: "India's premier Defence Forces coaching academy",
   description:
-    "Alia Academy trains future officers for NDA, CDS, AFCAT, SSB and other Indian Defence services with elite faculty, modern infrastructure and a proven results record.",
+    "Afrin Defence Academy trains future officers for NDA, CDS, AFCAT, SSB and other Indian Defence services with elite faculty, modern infrastructure and a proven results record.",
   phone: "+91 85838 43348",
   phoneRaw: "+918583843348",
-  email: "admissions@aliaacademy.in",
+  email: "admissions@afrindefenceacademy.in",
   whatsapp: "918583843348",
   address: "Officer's Lane, Sector 14, New Delhi, India",
   mapsEmbed:

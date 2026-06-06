@@ -12,7 +12,7 @@ export function Testimonials() {
   return (
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-4">
-        <SectionHeading eyebrow="Voices from the front" title="From classroom to commission" description="Stories from cadets and officers who began their journey at Alia." />
+        <SectionHeading eyebrow="Voices from the front" title="From classroom to commission" description="Stories from cadets and officers who began their journey at Afrin Defence Academy." />
         <div className="relative mt-14">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">

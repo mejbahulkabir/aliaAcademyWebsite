@@ -79,7 +79,7 @@ export const FACULTY: Faculty[] = [
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
-  { id: "t1", name: "Lt. Aman Verma", achievement: "Recommended — IMA Dehradun", batch: "NDA-148", quote: "The SSB simulations at Alia were so close to the real board that the actual interview felt familiar. The mentorship is in another league.", initials: "AV" },
+  { id: "t1", name: "Lt. Aman Verma", achievement: "Recommended — IMA Dehradun", batch: "NDA-148", quote: "The SSB simulations at Afrin Defence Academy were so close to the real board that the actual interview felt familiar. The mentorship is in another league.", initials: "AV" },
   { id: "t2", name: "Flt. Cdt. Riya Sen", achievement: "AFCAT AIR 27", batch: "AFCAT 02/2024", quote: "Live doubt clearing till 11 PM, weekly mocks and brutally honest feedback — that's what cracked AFCAT for me on my first attempt.", initials: "RS" },
   { id: "t3", name: "Cadet Karan Joshi", achievement: "NDA 152 — AIR 84", batch: "NDA Foundation 2023", quote: "Two years of structure, discipline and the right peer group. I walked into the NDA written exam genuinely confident.", initials: "KJ" },
   { id: "t4", name: "SLt. Meera Pillai", achievement: "Commissioned — INA Ezhimala", batch: "CDS 1/2023", quote: "The faculty don't just teach — they've lived the life. Every class connected the syllabus to real service.", initials: "MP" },

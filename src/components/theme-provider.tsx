@@ -4,7 +4,7 @@ type Theme = "light" | "dark";
 type Ctx = { theme: Theme; setTheme: (t: Theme) => void; toggle: () => void };
 
 const ThemeContext = createContext<Ctx | null>(null);
-const STORAGE_KEY = "alia-theme";
+const STORAGE_KEY = "afrin-theme";
 
 function getInitial(): Theme {
   if (typeof window === "undefined") return "light";

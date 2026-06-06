@@ -22,7 +22,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
-  head: () => buildHead({ title: "Home", description: "Alia Academy — India's premier defence forces coaching academy for NDA, CDS, AFCAT, SSB and CAPF. 97% SSB recommendation rate.", path: "/" }),
+  head: () => buildHead({ title: "Home", description: "Afrin Defence Academy — India's premier defence forces coaching academy for NDA, CDS, AFCAT, SSB and CAPF. 97% SSB recommendation rate.", path: "/" }),
   component: Home,
 });
 
@@ -44,7 +44,7 @@ function Home() {
       <Testimonials />
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <SectionHeading eyebrow="Inside the academy" title="Life at Alia" description="Discipline, camaraderie and a campus built for officer training." />
+          <SectionHeading eyebrow="Inside the academy" title="Life at Afrin" description="Discipline, camaraderie and a campus built for officer training." />
           <div className="mt-12"><GalleryGrid items={gallery} /></div>
         </div>
       </section>

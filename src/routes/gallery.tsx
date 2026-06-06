@@ -11,7 +11,7 @@ import hero from "@/assets/hero-cadets.jpg";
 import cta from "@/assets/cta-training.jpg";
 
 export const Route = createFileRoute("/gallery")({
-  head: () => buildHead({ title: "Gallery", description: "A look inside Alia Academy — classrooms, parade ground, physical training, commissioning ceremonies and naval alumni.", path: "/gallery" }),
+  head: () => buildHead({ title: "Gallery", description: "A look inside Afrin Defence Academy — classrooms, parade ground, physical training, commissioning ceremonies and naval alumni.", path: "/gallery" }),
   component: Gallery,
 });
 
@@ -28,7 +28,7 @@ function Gallery() {
   ];
   return (
     <>
-      <PageHeader eyebrow="Gallery" title="Inside Alia Academy" />
+      <PageHeader eyebrow="Gallery" title="Inside Afrin Defence Academy" />
       <section className="py-20 md:py-24"><div className="container mx-auto px-4"><GalleryGrid items={items} /></div></section>
       <CTASection />
     </>

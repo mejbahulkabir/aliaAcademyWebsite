@@ -16,7 +16,7 @@ import { COURSES, EXAMS } from "@/constants/data";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/admission")({
-  head: () => buildHead({ title: "Online Admission", description: "Apply online for Alia Academy's defence preparation programs. Limited seats per batch.", path: "/admission" }),
+  head: () => buildHead({ title: "Online Admission", description: "Apply online for Afrin Defence Academy's defence preparation programs. Limited seats per batch.", path: "/admission" }),
   component: Admission,
 });
 
@@ -64,7 +64,7 @@ function Admission() {
                 <div className="md:col-span-2"><Label htmlFor="message">Anything we should know?</Label><Textarea id="message" rows={4} {...register("message")} /></div>
                 <div className="md:col-span-2 flex items-start gap-2">
                   <Checkbox id="consent" checked={!!consent} onCheckedChange={(v) => setValue("consent", v === true, { shouldValidate: true })} />
-                  <label htmlFor="consent" className="text-sm text-muted-foreground">I agree to be contacted by Alia Academy and accept the privacy policy.</label>
+                  <label htmlFor="consent" className="text-sm text-muted-foreground">I agree to be contacted by Afrin Defence Academy and accept the privacy policy.</label>
                 </div>
                 {errors.consent && <p className="md:col-span-2 -mt-2 text-xs text-destructive">{errors.consent.message}</p>}
               </div>

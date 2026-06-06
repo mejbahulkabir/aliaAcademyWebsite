@@ -10,7 +10,7 @@ import { fadeUp, stagger } from "@/animations/variants";
 import { Award, Target, Users, Compass } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
-  head: () => buildHead({ title: "About Academy", description: "Founded in 2007, Alia Academy is India's premier coaching institute for defence forces, with 3,200+ commissioned officers and 18+ years of training excellence.", path: "/about" }),
+  head: () => buildHead({ title: "About Academy", description: "Founded in 2007, Afrin Defence Academy is India's premier coaching institute for defence forces, with 3,200+ commissioned officers and 18+ years of training excellence.", path: "/about" }),
   component: About,
 });
 
@@ -24,7 +24,7 @@ const VALUES = [
 function About() {
   return (
     <>
-      <PageHeader eyebrow="About the Academy" title="Eighteen years of training India's officers" description="Founded in 2007 by serving and retired officers, Alia Academy has prepared over 12,500 aspirants for the Indian Armed Forces with measurable, repeatable results." />
+      <PageHeader eyebrow="About the Academy" title="Eighteen years of training India's officers" description="Founded in 2007 by serving and retired officers, Afrin Defence Academy has prepared over 12,500 aspirants for the Indian Armed Forces with measurable, repeatable results." />
       <section className="py-20 md:py-24">
         <div className="container mx-auto grid items-start gap-12 px-4 md:grid-cols-2">
           <div>
@@ -34,7 +34,7 @@ function About() {
           </div>
           <div>
             <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">Our story</h2>
-            <p className="mt-4 text-muted-foreground">Started in a single classroom in 2007 by Col. Arvind Mehra (Retd.), Alia has grown into a multi-acre campus with a real GTO ground, psychology labs, an obstacle course, and live AFSB simulators.</p>
+            <p className="mt-4 text-muted-foreground">Started in a single classroom in 2007 by Col. Arvind Mehra (Retd.), Afrin Defence Academy has grown into a multi-acre campus with a real GTO ground, psychology labs, an obstacle course, and live AFSB simulators.</p>
             <p className="mt-4 text-muted-foreground">Through 18 years and 36+ NDA batches, our principle has remained unchanged: small classes, deep mentorship, and faculty who have served.</p>
           </div>
         </div>

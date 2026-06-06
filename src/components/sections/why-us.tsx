@@ -7,7 +7,7 @@ export function WhyUs() {
   return (
     <section className="py-20 md:py-28">
       <div className="container mx-auto px-4">
-        <SectionHeading eyebrow="Why Alia" title="Discipline. Mentorship. Results." description="Everything the army-style intensity demands, structured into a coaching system that actually works." />
+        <SectionHeading eyebrow="Why Afrin" title="Discipline. Mentorship. Results." description="Everything the army-style intensity demands, structured into a coaching system that actually works." />
         <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {WHY_US.map((w) => (
             <motion.div key={w.title} variants={fadeUp} className="group relative rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-elegant">

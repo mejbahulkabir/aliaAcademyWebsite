@@ -8,7 +8,7 @@ import { stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/courses")({
-  head: () => buildHead({ title: "Courses", description: "Explore Alia Academy's full range of defence preparation courses: NDA Foundation, CDS Intensive, AFCAT Pro, SSB Mastery, Agniveer and CAPF AC.", path: "/courses" }),
+  head: () => buildHead({ title: "Courses", description: "Explore Afrin Defence Academy's full range of defence preparation courses: NDA Foundation, CDS Intensive, AFCAT Pro, SSB Mastery, Agniveer and CAPF AC.", path: "/courses" }),
   component: Courses,
 });
 

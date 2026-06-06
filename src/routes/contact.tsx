@@ -15,7 +15,7 @@ import { SITE } from "@/constants/site";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
-  head: () => buildHead({ title: "Contact", description: "Get in touch with Alia Academy — call, email, WhatsApp or visit our campus in New Delhi.", path: "/contact" }),
+  head: () => buildHead({ title: "Contact", description: "Get in touch with Afrin Defence Academy — call, email, WhatsApp or visit our campus in New Delhi.", path: "/contact" }),
   component: Contact,
 });
 
@@ -46,7 +46,7 @@ function Contact() {
               </div>
             ))}
             <div className="overflow-hidden rounded-2xl border border-border">
-              <iframe title="Alia Academy location" src={SITE.mapsEmbed} loading="lazy" className="h-72 w-full" referrerPolicy="no-referrer-when-downgrade" />
+              <iframe title="Afrin Defence Academy location" src={SITE.mapsEmbed} loading="lazy" className="h-72 w-full" referrerPolicy="no-referrer-when-downgrade" />
             </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="lg:col-span-3 rounded-2xl border border-border bg-card p-6 md:p-8">

@@ -5,6 +5,6 @@ export async function submitContact(payload: unknown): Promise<ApiResult> {
   catch (err) { return { ok: false, error: err instanceof Error ? err.message : "Unknown error" }; }
 }
 export async function submitAdmission(payload: unknown): Promise<ApiResult> {
-  try { await sleep(1100); return { ok: true, data: { applicationId: `ALIA-${Date.now().toString(36).toUpperCase()}`, payload } }; }
+  try { await sleep(1100); return { ok: true, data: { applicationId: `ADA-${Date.now().toString(36).toUpperCase()}`, payload } }; }
   catch (err) { return { ok: false, error: err instanceof Error ? err.message : "Unknown error" }; }
 }

@@ -8,7 +8,7 @@ import { stagger } from "@/animations/variants";
 import { buildHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/faculty")({
-  head: () => buildHead({ title: "Faculty", description: "Meet Alia Academy's faculty — retired officers from Army, Navy and Air Force, and subject specialists with decades of teaching experience.", path: "/faculty" }),
+  head: () => buildHead({ title: "Faculty", description: "Meet Afrin Defence Academy's faculty — retired officers from Army, Navy and Air Force, and subject specialists with decades of teaching experience.", path: "/faculty" }),
   component: Faculty,
 });
 
