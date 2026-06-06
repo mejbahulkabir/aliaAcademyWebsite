@@ -3,14 +3,41 @@ import { motion } from "motion/react";
 import { ArrowRight, PlayCircle, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-cadets.jpg";
+import { useSiteData } from "@/lib/site-data";
+
+const DEFAULTS = {
+  image: heroImg as unknown as string,
+  eyebrow: "India's most decorated defence academy",
+  title: "Become the officer",
+  titleHighlight: "India is waiting for.",
+  subtitle:
+    "NDA · CDS · AFCAT · SSB · CAPF — taught by ex-defence officers, with a 97% SSB recommendation rate and three thousand commissioned alumni.",
+  ctaLabel: "Apply for Admission",
+  ctaHref: "/admission",
+  secondaryLabel: "Explore Courses",
+  secondaryHref: "/courses",
+};
 
 export function Hero() {
+  const { banners } = useSiteData();
+  const hero = banners.find((b) => b.slot === "hero" && b.active !== false) ?? null;
+
+  const image = hero?.image || DEFAULTS.image;
+  const eyebrow = hero?.eyebrow || DEFAULTS.eyebrow;
+  const title = hero?.title || DEFAULTS.title;
+  const titleHighlight = hero?.titleHighlight || DEFAULTS.titleHighlight;
+  const subtitle = hero?.subtitle || DEFAULTS.subtitle;
+  const ctaLabel = hero?.ctaLabel || DEFAULTS.ctaLabel;
+  const ctaHref = (hero?.ctaHref || DEFAULTS.ctaHref) as string;
+  const secondaryLabel = hero?.secondaryLabel || DEFAULTS.secondaryLabel;
+  const secondaryHref = (hero?.secondaryHref || DEFAULTS.secondaryHref) as string;
+
   return (
     <section className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <img
-          src={heroImg}
-          alt="Indian defence academy cadets in disciplined formation at sunrise"
+          src={image}
+          alt="Defence academy banner"
           width={1920}
           height={1080}
           fetchPriority="high"
@@ -30,7 +57,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-[var(--teal-soft)] backdrop-blur"
             >
               <ShieldCheck className="h-3.5 w-3.5" />
-              India's most decorated defence academy
+              {eyebrow}
             </motion.div>
 
             <motion.h1
@@ -39,9 +66,13 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
             >
-              Become the officer
-              <br />
-              <span className="text-gradient-ocean">India is waiting for.</span>
+              {title}
+              {titleHighlight ? (
+                <>
+                  <br />
+                  <span className="text-gradient-ocean">{titleHighlight}</span>
+                </>
+              ) : null}
             </motion.h1>
 
             <motion.p
@@ -50,8 +81,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.18 }}
               className="mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg"
             >
-              NDA · CDS · AFCAT · SSB · CAPF — taught by ex-defence officers, with a
-              97% SSB recommendation rate and three thousand commissioned alumni.
+              {subtitle}
             </motion.p>
 
             <motion.div
@@ -61,20 +91,22 @@ export function Hero() {
               className="mt-9 flex flex-wrap items-center gap-3"
             >
               <Button asChild size="lg" className="bg-white text-[var(--navy-deep)] hover:bg-white/90">
-                <Link to="/admission">
-                  Apply for Admission <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                <a href={ctaHref}>
+                  {ctaLabel} <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white/30 bg-white/5 text-white hover:bg-white/10 hover:text-white"
-              >
-                <Link to="/courses">
-                  <PlayCircle className="mr-2 h-4 w-4" /> Explore Courses
-                </Link>
-              </Button>
+              {secondaryLabel ? (
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/30 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+                >
+                  <a href={secondaryHref}>
+                    <PlayCircle className="mr-2 h-4 w-4" /> {secondaryLabel}
+                  </a>
+                </Button>
+              ) : null}
             </motion.div>
 
             <motion.div

@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/sections/page-header";
 import { GalleryGrid } from "@/components/sections/gallery-grid";
 import { CTASection } from "@/components/common/cta-section";
 import { buildHead } from "@/lib/seo";
+import { useSiteData } from "@/lib/site-data";
 import classroom from "@/assets/gallery-classroom.jpg";
 import pt from "@/assets/gallery-pt.jpg";
 import grad from "@/assets/gallery-graduation.jpg";
@@ -16,7 +17,8 @@ export const Route = createFileRoute("/gallery")({
 });
 
 function Gallery() {
-  const items = [
+  const { gallery: dynamicGallery } = useSiteData();
+  const fallback = [
     { src: hero, alt: "Cadets on parade", caption: "Annual passing-out parade" },
     { src: classroom, alt: "Cadets in strategy class", caption: "Map briefing & GS class" },
     { src: pt, alt: "Cadets PT", caption: "Dawn PT on the field" },
@@ -26,6 +28,7 @@ function Gallery() {
     { src: pt, alt: "Push-ups", caption: "Strength block" },
     { src: classroom, alt: "Briefing", caption: "Officer-led briefing" },
   ];
+  const items = dynamicGallery.length ? dynamicGallery : fallback;
   return (
     <>
       <PageHeader eyebrow="Gallery" title="Inside Afrin Defence Academy" />

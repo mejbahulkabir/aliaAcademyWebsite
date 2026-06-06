@@ -1,4 +1,4 @@
-import type { Course, Exam, Faculty, Testimonial, BlogPost, Stat } from "@/types";
+import type { Course, Exam, Faculty, Testimonial, BlogPost, Stat, GalleryItem } from "@/types";
 import { SITE as SITE_FALLBACK } from "@/constants/site";
 import {
   COURSES as COURSES_FALLBACK,
@@ -9,6 +9,22 @@ import {
   STATS as STATS_FALLBACK,
   WHY_US as WHY_US_FALLBACK,
 } from "@/constants/data";
+
+export interface Banner {
+  id: string;
+  slot: "hero" | "cta";
+  image: string;
+  eyebrow?: string;
+  title?: string;
+  titleHighlight?: string;
+  subtitle?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  active?: boolean;
+  order?: number;
+}
 
 export interface SiteSettingsData {
   name: string;
@@ -44,6 +60,8 @@ export interface SiteData {
   blog: BlogPost[];
   stats: Stat[];
   whyUs: WhyUsItem[];
+  banners: Banner[];
+  gallery: GalleryItem[];
 }
 
 const API_URL = (import.meta.env.VITE_API_URL as string | undefined) ?? "http://localhost:4000";
@@ -60,7 +78,7 @@ async function fetchOrFallback<T>(path: string, fallback: T): Promise<T> {
 }
 
 export async function loadSiteData(): Promise<SiteData> {
-  const [site, courses, exams, faculty, testimonials, blog, stats, whyUs] = await Promise.all([
+  const [site, courses, exams, faculty, testimonials, blog, stats, whyUs, banners, gallery] = await Promise.all([
     fetchOrFallback<SiteSettingsData | null>("/api/site", null),
     fetchOrFallback<Course[]>("/api/courses", []),
     fetchOrFallback<Exam[]>("/api/exams", []),
@@ -69,6 +87,8 @@ export async function loadSiteData(): Promise<SiteData> {
     fetchOrFallback<BlogPost[]>("/api/blog", []),
     fetchOrFallback<Stat[]>("/api/stats", []),
     fetchOrFallback<WhyUsItem[]>("/api/why-us", []),
+    fetchOrFallback<Banner[]>("/api/banners", []),
+    fetchOrFallback<GalleryItem[]>("/api/gallery", []),
   ]);
 
   return {
@@ -80,6 +100,8 @@ export async function loadSiteData(): Promise<SiteData> {
     blog: blog.length ? blog : BLOG_FALLBACK,
     stats: stats.length ? stats : STATS_FALLBACK,
     whyUs: whyUs.length ? whyUs : WHY_US_FALLBACK,
+    banners,
+    gallery,
   };
 }
 

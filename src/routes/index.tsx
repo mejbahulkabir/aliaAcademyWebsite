@@ -27,13 +27,14 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { blog: BLOG_POSTS } = useSiteData();
-  const gallery = [
+  const { blog: BLOG_POSTS, gallery: dynamicGallery } = useSiteData();
+  const fallback = [
     { src: classroom, alt: "Cadets in classroom", caption: "Strategy & GS classroom" },
     { src: pt, alt: "Cadets PT", caption: "Morning physical training" },
     { src: grad, alt: "Graduation", caption: "Commissioning ceremony" },
     { src: navy, alt: "Navy ship", caption: "Naval Academy alumni" },
   ];
+  const gallery = dynamicGallery.length ? dynamicGallery.slice(0, 4) : fallback;
   return (
     <>
       <Hero />

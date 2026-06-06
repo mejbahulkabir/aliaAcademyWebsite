@@ -20,6 +20,8 @@ const DEFAULT_DATA: SiteData = {
   blog: BLOG_FALLBACK,
   stats: STATS_FALLBACK,
   whyUs: WHY_US_FALLBACK as WhyUsItem[],
+  banners: [],
+  gallery: [],
 };
 
 const SiteDataContext = createContext<SiteData>(DEFAULT_DATA);
